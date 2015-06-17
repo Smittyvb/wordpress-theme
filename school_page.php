@@ -7,78 +7,73 @@ Template Name: School List
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12">a
 
         <?php
               // Start the Loop.
               while ( have_posts() ) : the_post();
-
                 // Include the post format-specific content template.
                 get_template_part( 'content', 'page' );
               endwhile;
             ?>
         </div>
 
-        <div class="col-md-6 hidden-xs">
-        	<a id="elementaryschools"></a>
+<?php 
+// get all the schools
+$json = file_get_contents('http://ec-iappsrv1.wrdsb.ca/api/school');
+$schools = json_decode($json);
+
+// closed schools
+$omit = array('ALC','ALI','ALR','ALU','ANC','BAD','BLV','BRI','CAS','CLC','DKS','ELE','HAR','HMR','LAF','LNA','LUC','LUT','MBR','MCQ','NWL','PYS','RMT','SBL','SBM','SMH','TBR','UHS','UTR','WNB','WSR','WSS','XSE','XSS');
+
+ // full size display ?>
+        <div class="col-md-6 hidden-xs" id="elementaryschools">
         	<p class="hidden-xs hidden-md hidden-lg"><a href="#secondaryschools">Secondary Schools</a></p>
         	<h2>Elementary Schools</h2>
-			<div class="table-responsive" >
-				<table class="table table-striped table-fixed-head">
-					<thead>
+					<div class="table-responsive" >
+						<table class="table table-striped table-fixed-head">
+							<thead>
+								<tr>
+									<th class="text-left">School/Website</th>
+									<th class="text-left">Address/Phone</th>
+									<!--<th class="text-left">Phone</th>-->
+									<!--<th class="text-left">Email</th>-->
+								</tr>
+							</thead>
+							<tbody>
+<?php
+foreach($schools as $school) 
+{
+	if((!in_array($school->alpha_code,$omit)) && ($school->school_type_code=='Elem')) 
+	{
+		$phone = $school->phone;
+		$phone = '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4);
+		$website = strtolower($school->website);
+		$code = strtolower($school->alpha_code);
+		$postalcode = substr($school->postal_code,0,3).' '.substr($school->postal_code,3,3);
+		echo <<< END
 						<tr>
-							<th class="text-left">School/Website</th>
-							<th class="text-left">Address/Phone</th>
-							<!--<th class="text-left">Phone</th>-->
-							<!--<th class="text-left">Email</th>-->
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-							$json = file_get_contents('http://ec-iappsrv1.wrdsb.ca/api/school');
-							$schools = json_decode($json);
-
-							foreach($schools as $school) {
-								if(($school->alpha_code != 'RMT') and ($school->alpha_code != 'TBR') and 
-									($school->alpha_code != 'DKS') and ($school->alpha_code != 'LNA') and
-									($school->alpha_code != 'SBL') and ($school->alpha_code != 'SBM') and
-									($school->alpha_code != 'SMH') and ($school->alpha_code != 'PYS') and
-									($school->alpha_code != 'CLC') and ($school->alpha_code != 'MBR') and
-									($school->alpha_code != 'LUT') and 
-									($school->alpha_code != 'LAF') and ($school->alpha_code != 'HMR') and
-									($school->alpha_code != 'XSE') and ($school->alpha_code != 'CAS') and
-									($school->alpha_code != 'BLV') and ($school->alpha_code != 'LNA') and
-									($school->alpha_code != 'LUC') and ($school->alpha_code != 'WSR') and
-									($school->alpha_code != 'ALI') and ($school->alpha_code != 'BAD') and
-									($school->alpha_code != 'BRI') and ($school->alpha_code != 'HAR') and
-									($school->alpha_code != 'WNB') and ($school->alpha_code != 'NWL') and
-									($school->alpha_code != 'MCQ') and
-									($school->school_type_code=='Elem')) {
-						?>
-						<tr>
-							<td><strong><?php echo $school->full_name ?></strong><br />
-								<a href="<?php echo $school->website ?>" target="_blank"><?php $website = $school->website; echo strtolower($website); ?></a>
+							<td><strong>$school->full_name</strong><br />
+								<a href="$website" target="_blank">$website</a>
 							</td>
-							<td><?php echo $school->street_address.'<br />'.$school->city.' '.$school->postal_code?>
-								(<?php echo'<a href="http://maps.google.com/maps?f=q&hl=en&q='.$school->street_address.'+'.$school->city.'+Ontario" target="_blank">Map</a>' ?>)
+							<td>$school->street_address<br />
+								$school->city $postalcode (<a href="http://maps.google.com/maps?f=q&hl=en&q=$school->street_address+$school->city+Ontario" target="_blank">Map</a>)
 								<br />
-								Phone: <?php $phone=$school->phone; echo '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4) ?>
+								Phone: $phone
 							</td>
-							<!--<td><?php $phone=$school->phone; echo '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4) ?></td>-->
-							<!--<td><?php $code=$school->alpha_code; $code=strtolower($code); ?>
-								<a href="mailto:<?php echo $code; ?>@wrdsb.on.ca"><?php echo $code; ?>@wrdsb.on.ca</a>
+							<!--<td>$phone</td>-->
+							<!--<td><a href="mailto:$code@wrdsb.on.ca">$code@wrdsb.on.ca</a>
 							</td>-->
 						</tr>
-						<?php	
-								}
-							}
-						?>
+END;
+	}
+}
+?>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		<div class="col-md-6 hidden-xs">
-			<a id="secondaryschools"></a>
+		<div class="col-md-6 hidden-xs" id="secondaryschools">
 			<p class="hidden-xs hidden-md hidden-lg"><a href="#elementaryschools">Elementary Schools</a></p>
 			<h2>Secondary Schools</h2>
 			<div class="table-responsive" >
@@ -92,114 +87,102 @@ Template Name: School List
 						</tr>
 					</thead>
 					<tbody>
-						<?php
-							$json = file_get_contents('http://ec-iappsrv1.wrdsb.ca/api/school');
-							$schools = json_decode($json);
-
-							foreach($schools as $school) {
-								if(($school->alpha_code != 'RMT') and ($school->alpha_code != 'ALR') and ($school->alpha_code != 'ALC') and
-									($school->alpha_code != 'ALU') and ($school->alpha_code != 'ANC') and
-									($school->alpha_code != 'ALR') and ($school->alpha_code != 'ELE') and
-									($school->alpha_code != 'ALR') and ($school->alpha_code != 'ALC') and
-									($school->alpha_code != 'XSS') and ($school->alpha_code != 'UTR') and
-									($school->alpha_code != 'WSS') and ($school->alpha_code != 'UHS') and 
-									($school->school_type_code=='Sec')) {
-						?>
+<?php
+foreach($schools as $school) 
+{
+	if((!in_array($school->alpha_code,$omit)) && ($school->school_type_code=='Sec')) 
+	{
+		$phone = $school->phone;
+		$phone = '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4);
+		$website = strtolower($school->website);
+		$code = strtolower($school->alpha_code);
+		$postalcode = substr($school->postal_code,0,3).' '.substr($school->postal_code,3,3);
+		echo <<< END
 						<tr>
-							<td><strong><?php echo $school->full_name ?></strong><br />
-								<a href="<?php echo $school->website ?>" target="_blank"><?php $website = $school->website; echo strtolower($website); ?></a>
+							<td><strong>$school->full_name</strong><br />
+								<a href="$website" target="_blank">$website</a>
 							</td>
-							<td><?php echo $school->street_address.'<br />'.$school->city.' '.$school->postal_code?>
-								(<?php echo'<a href="http://maps.google.com/maps?f=q&hl=en&q='.$school->street_address.'+'.$school->city.'+Ontario" target="_blank">Map</a>' ?>)
+							<td>$school->street_address<br />
+								$school->city $postalcode (<a href="http://maps.google.com/maps?f=q&hl=en&q=$school->street_address+$school->city+Ontario" target="_blank">Map</a>)
 								<br />
-								Phone: <?php $phone=$school->phone; echo '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4) ?>
+								Phone: $phone
 							</td>
-							<!--<td><?php $phone=$school->phone; echo '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4) ?></td>-->
-							<!--<td><?php $code=$school->alpha_code; $code=strtolower($code); ?>
-								<a href="mailto:<?php echo $code; ?>@wrdsb.on.ca"><?php echo $code; ?>@wrdsb.on.ca</a>
+							<!--<td>$phone</td>-->
+							<!--<td><a href="mailto:$code@wrdsb.on.ca">$code@wrdsb.on.ca</a>
 							</td>-->
 						</tr>
-						<?php	
-								}
-							}
-						?>
+END;
+	}
+}
+?>
 					</tbody>
 				</table>
 			</div>
 		</div>
 
+<?php // small screen display ?>
 		<div class="col-md-12 visible-xs">
-			<a id="elementaryschools_xs"></a>
-			<p><a href="#secondaryschools_xs">Secnodary Schools</a></p>
-		
-			<h2>Elementary Schools</h2>
+			<p><a href="#secondaryschools_xs">Secondary Schools</a></p>
+
+			<h2 id="elementaryschools_xs">Elementary Schools</h2>
 
 			<ul class="table-list">
-				<?php
-					$json = file_get_contents('http://ec-iappsrv1.wrdsb.ca/api/school');
-					$schools = json_decode($json);
+<?php
+foreach($schools as $school) 
+{
+	if((!in_array($school->alpha_code,$omit)) && ($school->school_type_code=='Elem')) 
+	{
+		$phone = $school->phone;
+		$phone = '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4);
+		$website = strtolower($school->website);
+		$code = strtolower($school->alpha_code);
+		$postalcode = substr($school->postal_code,0,3).' '.substr($school->postal_code,3,3);
 
-					foreach($schools as $school) {
-						if(($school->alpha_code != 'RMT') and ($school->alpha_code != 'TBR') and 
-									($school->alpha_code != 'DKS') and ($school->alpha_code != 'LNA') and
-									($school->alpha_code != 'SBL') and ($school->alpha_code != 'SBM') and
-									($school->alpha_code != 'SMH') and ($school->alpha_code != 'PYS') and
-									($school->alpha_code != 'CLC') and ($school->alpha_code != 'MBR') and
-									($school->alpha_code != 'LUT') and 
-									($school->alpha_code != 'LAF') and ($school->alpha_code != 'HMR') and
-									($school->alpha_code != 'XSE') and ($school->alpha_code != 'CAS') and
-									($school->alpha_code != 'BLV') and ($school->alpha_code != 'LNA') and
-									($school->alpha_code != 'LUC') and ($school->alpha_code != 'WSR') and
-									($school->alpha_code != 'ALI') and ($school->alpha_code != 'BAD') and
-									($school->alpha_code != 'BRI') and ($school->alpha_code != 'HAR') and
-									($school->alpha_code != 'WNB') and ($school->alpha_code != 'NWL') and
-									($school->alpha_code != 'MCQ') and
-									($school->school_type_code=='Elem')) {
-				?>
+		echo <<< END
 				<li>
-					<p><strong><?php echo $school->full_name ?></strong><br />
-					<a href="<?php echo $school->website ?>" target="_blank"><?php $website = $school->website; echo strtolower($website); ?></a></p>
-					<p><?php echo $school->street_address.', '.$school->city.' '.$school->postal_code?>
-						(<?php echo'<a href="http://maps.google.com/maps?f=q&hl=en&q='.$school->street_address.'+'.$school->city.'+Ontario" target="_blank">Map</a>' ?>)</p>
-					<p><?php $phone=$school->phone; echo '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4) ?></p>
+					<p><strong>$school->full_name</strong><br />
+					<a href="$website" target="_blank">$website</a></p>
+					<p>$school->street_address<br />
+					$school->city $postalcode (<a href="http://maps.google.com/maps?f=q&hl=en&q=$school->street_address+$school->city+Ontario" target="_blank">Map</a>)</p>
+					<p>$phone</p>
 				</li>
-				<?php	
-						}
-					}
+END;
+	}
+}
 				?>
 			</ul>
 
-			<a id="secondaryschools_xs"></a>
 			<p><a href="#elementaryschools_xs">Elementary Schools</a></p>
-			<h2>Secondary Schools</h2>
-			<ul class="table-list">
-				<?php
-					$json = file_get_contents('http://ec-iappsrv1.wrdsb.ca/api/school');
-					$schools = json_decode($json);
 
-					foreach($schools as $school) {
-						if(($school->alpha_code != 'RMT') and ($school->alpha_code != 'ALR') and ($school->alpha_code != 'ALC') and
-									($school->alpha_code != 'ALU') and ($school->alpha_code != 'ANC') and
-									($school->alpha_code != 'ALR') and ($school->alpha_code != 'ELE') and
-									($school->alpha_code != 'ALR') and ($school->alpha_code != 'ALC') and
-									($school->alpha_code != 'XSS') and ($school->alpha_code != 'UTR') and
-									($school->alpha_code != 'WSS') and ($school->alpha_code != 'UHS') and 
-									($school->school_type_code=='Sec')) {
-				?>
+			<h2 id="secondaryschools_xs">Secondary Schools</h2>
+
+			<ul class="table-list">
+<?php
+foreach($schools as $school) 
+{
+	if((!in_array($school->alpha_code,$omit)) && ($school->school_type_code=='Sec')) 
+	{
+		$phone = $school->phone;
+		$phone = '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4);
+		$website = strtolower($school->website);
+		$code = strtolower($school->alpha_code);
+		$postalcode = substr($school->postal_code,0,3).' '.substr($school->postal_code,3,3);
+
+		echo <<< END
 				<li>
-					<p><strong><?php echo $school->full_name ?></strong><br />
-					<a href="<?php echo $school->website ?>" target="_blank"><?php $website = $school->website; echo strtolower($website); ?></a></p>
-					<p><?php echo $school->street_address.', '.$school->city.' '.$school->postal_code?>
-						(<?php echo'<a href="http://maps.google.com/maps?f=q&hl=en&q='.$school->street_address.'+'.$school->city.'+Ontario" target="_blank">Map</a>' ?>)</p>
-					<p><?php $phone=$school->phone; echo '('.substr($phone,0,3).') '.substr($phone,3,3).'-'.substr($phone,6,4) ?></p>
+					<p><strong>$school->full_name</strong><br />
+					<a href="$website" target="_blank">$website</a></p>
+					<p>$school->street_address<br />
+					$school->city $postalcode (<a href="http://maps.google.com/maps?f=q&hl=en&q=$school->street_address+$school->city+Ontario" target="_blank">Map</a>)</p>
+					<p>$phone</p>
 				</li>
-				<?php	
-						}
-					}
-				?>
+END;
+	}
+}
+?>
 			</ul>
 		</div>
 	</div>
 </div>
 
-<?php get_footer(); ?>
+<?php get_footer();
