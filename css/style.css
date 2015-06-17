@@ -200,7 +200,7 @@ ul.footer-links li {
 	display:inline-block;
 	width:100%;
 	height:110px;
-	background:url(../images/WRDSB_Logo.svg) no-repeat;
+	background:url(../img/WRDSB_Logo.svg) no-repeat;
 	background-size:110px 110px;
 	padding-left:120px;
 	text-decoration:none;
@@ -454,20 +454,6 @@ ul.table-list li {
 	border-bottom:1px solid #005daa;
 }
 
-ul#library_services > li.active {
-background-color:#fff;
-}
-ul#library_services > li > a:hover {
-background-color: #eee;
-}
-.libBtnSearch {
-width:50px;
-height:35px;
-border:none;
-background-image: url('../images/btnSearch.png');
-cursor:pointer;
-vertical-align: middle;
-}
 .panel-collapse ul {
 	margin-top:10px;
 }
@@ -475,28 +461,6 @@ select {
 	height:30px;
 }
 
-.library-icons {
-	padding:0;
-	list-style:none;
-	height:auto;
-}
-
-.library-icons li {
-	display:inline-block;
-	margin:10px;
-	text-align:center;
-	padding:6px;
-	border:1px solid #eee;
-}
-
-.library-icons li a img {
-	max-width:164px;
-	display:inline-block;
-}
-.library-icons li a span {
-	font-weight: bold;
-	display:block;
-}
 h6.copyright > a, p.copyright > a {
 	display:inline-block;
 }
@@ -559,7 +523,7 @@ content: "Example";
 			color:#fff;
 		}
 	/*a.logo {
-		background:url(../images/WRDSB_Logo.svg) no-repeat;
+		background:url(../img/WRDSB_Logo.svg) no-repeat;
 		background-size:50px 50px;
 		padding-left:60px;
 		}*/
@@ -567,7 +531,7 @@ content: "Example";
 			text-align:left;
 		}
 		.navbar-header {
-			background:url(../images/WRDSB_Logo.svg) no-repeat;
+			background:url(../img/WRDSB_Logo.svg) no-repeat;
 			background-size:50px 50px;
 			background-repeat: no-repeat;
 			background-position:4px 2px;
@@ -652,7 +616,7 @@ content: "Example";
 			font-size:36px;
 		}
 		#logo a {
-			background:url(../images/WRDSB_Logo.svg) no-repeat;
+			background:url(../img/WRDSB_Logo.svg) no-repeat;
 			background-size:80px 80px;
 			background-repeat: no-repeat;
 			background-position:4px 2px;
@@ -920,7 +884,7 @@ content: "Example";
 color: #666666;
 font-size: 14px;
 padding-left: 40px;
-background-image: url(images/asterix.jpg);
+background-image: url(img/asterix.jpg);
 background-repeat: no-repeat;
 display: block;
 padding-top: 10px;
@@ -1000,7 +964,7 @@ p.fineprint, .fineprint {
 /** custom lists **/
 
 ul.checklist li {
-	list-style: square url(../images/checkbox_11x11.gif);
+	list-style: square url(../img/checkbox_11x11.gif);
 	line-height: 2em;
 	list-style-position: outside;
 	vertical-align: top;
@@ -1045,7 +1009,7 @@ ul.checklist li {
 /*** __file type icons ***/
 
 a[href $='pdf'] {
-	background-image: url(../images/icons_filetype/icon_pdf_small.gif);
+	background-image: url(../img/icons_filetype/icon_pdf_small.gif);
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
@@ -1062,31 +1026,31 @@ a.noicon[href $='pdf'] {
 }
 
 a[href $='xls'] {
-	background-image: url(../images/icons_filetype/icon_xls_small.gif);
+	background-image: url(../img/icons_filetype/icon_xls_small.gif);
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
 
 a[href $='xlsx'] {
-	background-image: url(../images/icons_filetype/icon_xls_small.gif);
+	background-image: url(../img/icons_filetype/icon_xls_small.gif);
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
 
 a[href $='doc'] {
-	background-image: url(../images/icons_filetype/icon_doc_small.gif);
+	background-image: url(../img/icons_filetype/icon_doc_small.gif);
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
 
 a[href $='docx'] {
-	background-image: url(../images/icons_filetype/icon_doc_small.gif);
+	background-image: url(../img/icons_filetype/icon_doc_small.gif);
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
 
 /*.post a[href ^="http"]  {
-	background-image: url(images/icon_external_small.gif);
+	background-image: url(img/icon_external_small.gif);
 	background-repeat: no-repeat;
 	padding-left: 16px;
 	}*/
