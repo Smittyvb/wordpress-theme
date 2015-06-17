@@ -7,7 +7,7 @@ Template Name: School List
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">a
+		<div class="col-md-12">
 
         <?php
               // Start the Loop.
