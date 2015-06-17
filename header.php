@@ -25,10 +25,10 @@
   <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel="stylesheet">
   <link href="<?php echo get_template_directory_uri(); ?>/css/icon-styles.css" rel="stylesheet">
 
-  <link href="<?php echo get_template_directory_uri(); ?>/images/icon-60x60.png" rel="apple-touch-icon" />
-  <link href="<?php echo get_template_directory_uri(); ?>/images/icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
-  <link href="<?php echo get_template_directory_uri(); ?>/images/icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
-  <link href="<?php echo get_template_directory_uri(); ?>/images/icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+  <link href="<?php echo get_template_directory_uri(); ?>/img/icon-60x60.png" rel="apple-touch-icon" />
+  <link href="<?php echo get_template_directory_uri(); ?>/img/icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+  <link href="<?php echo get_template_directory_uri(); ?>/img/icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+  <link href="<?php echo get_template_directory_uri(); ?>/img/icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
 
   <link href="<?php echo get_template_directory_uri(); ?>/css/addtohomescreen.css" rel="stylesheet">
 
