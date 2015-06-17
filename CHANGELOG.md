@@ -1,3 +1,9 @@
+##
+
++ refactored school_page.php
++ renamed to schools-list.php
++ moved school_page.php to the templates folder
+
 ## 0.5.1
 + ensuring the school list is accurate
 
