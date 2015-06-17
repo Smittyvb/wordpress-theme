@@ -3,6 +3,9 @@
 + refactored school_page.php
 + renamed to schools-list.php
 + moved school_page.php to the templates folder
++ removed /images/ folder
++ moved images in use to /img/
++ changed /css/styles.css to reference /img/ instead of /images/
 
 ## 0.5.1
 + ensuring the school list is accurate
