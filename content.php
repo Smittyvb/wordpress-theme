@@ -13,21 +13,10 @@
 <?php //Featured Image
 // check if the full news item
 if (is_single()) :
-	// check if the post has a Post Thumbnail assigned to it.
-	if ( has_post_thumbnail() ) :
-		echo '<div class="featuredimage">';
- 		the_post_thumbnail('wrdsb-full-width');
- 		echo '</div>';
-        endif;
+	featured_image_fullpost();
 // else if part of news stream
 else :
-	// check if the post has a Post Thumbnail assigned to it.
-	if ( has_post_thumbnail()) :
-		// link Post Thumbnail to Post
-		// $post is from functions.php ?>
-		<a href="<?php echo get_permalink($post->ID) ?>"><?php echo the_post_thumbnail('wrdsb-full-width') ?></a>
-<?php
-        endif;
+	featured_image_newsstream();
 endif;
 ?>
 
@@ -48,43 +37,4 @@ if ( has_excerpt ()) {
 } else {
 	the_excerpt();
 }
- ?>
-
-<?php
-	$igc=0;
-	foreach((get_the_category()) as $category) {
-	    if (strtolower($category->cat_name) != 'uncategorized') {
-			$igc = 1;
-		}
-	}
-
-	if ($igc == 1) {
-		$display_cats = 1;
-	}
-
-	$number_of_tags = count(get_the_tags());
-
-	//if ($number_of_tags > 0) {
-	if (get_the_tags()) {
-		$display_tags = 1;
-	}
-
-	if (!isset($display_cats) && isset($display_tags)) {
-		echo '<div class="clearfix"></div>';
-		echo '<p class="categories gray-dark small">Tags: ';
-                the_tags('',' &bull; ','');
-                echo '</p>';
-	} elseif (isset($display_cats) && !isset($display_tags)) {
-		echo '<div class="clearfix"></div>';
-		echo '<p class="categories gray-dark small">Categories: ';
-                the_category(' &bull; ');
-                echo '</p>';
-	} elseif (isset($display_cats) && isset($display_tags)) {
-		echo '<div class="clearfix"></div>';
-		echo '<p class="categories gray-dark small">Categories: ';
-                the_category(' &bull; ');
-                echo ' Tags: ';
-                the_tags('',' &bull; ','');
-                echo '</p>';
-	}
-?>
+	display_cats_tags();
