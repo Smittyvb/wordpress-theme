@@ -1,15 +1,13 @@
+<?php
 function featured_image_fullpost() 
 {
 	// display Featured Image if the post has a Post Thumbnail assigned to it
 	// do not link the Featured Image to the Post URL
 	if ( has_post_thumbnail() )
 	{
-		$featured_image = '<div class="featuredimage">';
- 		$featured_image .= the_post_thumbnail('wrdsb-full-width');
- 		$featured_image .= '</div>';
-  }
-  
-  return $featured_image;
+		$featured_image = '<div class="featuredimage">'.the_post_thumbnail('wrdsb-full-width').'</div>';
+  	}
+  	return $featured_image;
 }
 
 function featured_image_newsstream() 
@@ -21,8 +19,7 @@ function featured_image_newsstream()
 		// link Post Thumbnail to Post
 		// $post is from functions.php
 		$featured_image  = '<a href="'.get_permalink($post->ID).'">'.the_post_thumbnail('wrdsb-full-width').'</a>';
-  }
-
+  	}
 	return $featured_image;
 }
 
