@@ -31,7 +31,7 @@ function is_wrdsb_right_sidebar()
   return $has_right;
 }
 
-function wrdsb_sidebar_start ()
+function wrdsb_sidebar_start()
 {
   // get the deets on the sidebar sitch
   $has_left = is_wrdsb_left_sidebar();
