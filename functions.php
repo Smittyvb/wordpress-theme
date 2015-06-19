@@ -799,3 +799,4 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 }
 
 require_once('functions/functions-posts.php');
+require_once('functions/functions-layout.php');
