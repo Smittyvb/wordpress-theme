@@ -7,7 +7,7 @@ function featured_image_fullpost()
 	{
 		global $post;
 		$featured_image = '<div class="featuredimage">';
-		$featured_image .= get_the_post_thumbnail($thumbnail->ID,'wrdsb-full-width')
+		$featured_image .= get_the_post_thumbnail($thumbnail->ID,'wrdsb-full-width');
 		$featured_image .= '</div>';
 		echo $featured_image;
 	}
