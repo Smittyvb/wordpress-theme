@@ -7,6 +7,7 @@ function featured_image_fullpost()
 	{
 		$featured_image = '<div class="featuredimage">'.the_post_thumbnail('wrdsb-full-width').'</div>';
   	}
+  	echo $featured_image;
   	return $featured_image;
 }
 
@@ -20,6 +21,7 @@ function featured_image_newsstream()
 		// $post is from functions.php
 		$featured_image  = '<a href="'.get_permalink($post->ID).'">'.the_post_thumbnail('wrdsb-full-width').'</a>';
   	}
+  	echo $featured_image;
 	return $featured_image;
 }
 
@@ -62,5 +64,6 @@ function display_cats_tags()
 		$cats_n_tags .= '</p>';
 	}
 	
+	echo $cats_n_tags;
 	return $cats_n_tags;
 }
