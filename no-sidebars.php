@@ -8,14 +8,10 @@ Template Name: No Sidebars
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <?php // check if the post has a Post Thumbnail assigned to it.
-        if ( has_post_thumbnail() ) {
-          echo '<div class="featuredimage">';
-          the_post_thumbnail('wrdsb-full-width');
-          echo '</div>';
-        }
-      ?>
-      <?php
+      <?php 
+        // check if the post has a Post Thumbnail assigned to it.
+        featured_image_fullpost();
+
         // Start the Loop.
         while ( have_posts() ) : the_post();
 
