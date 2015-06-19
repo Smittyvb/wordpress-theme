@@ -37,7 +37,10 @@ function display_cats_tags()
 	if ($posttags) {
 		$allthetags = '';
 		foreach($posttags as $tag) {
-			$allthetags .= '<a href="'.get_tag_link($tag->term_id).'">'.$tag->name.'</a> '; 
+			$allthetags .= '<a href="'.get_tag_link($tag->term_id).'">'.$tag->name.'</a> ';
+			if (next($tag)) {
+				$allthetags .= ' &bull; ';
+			}
 		}
 	}
 
