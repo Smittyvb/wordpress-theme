@@ -7,7 +7,6 @@ function featured_image_fullpost()
 	{
 		$featured_image = '<div class="featuredimage">'.the_post_thumbnail('wrdsb-full-width').'</div>';
   	echo $featured_image;
-  	//return $featured_image;
 	}
 }
 
@@ -20,9 +19,8 @@ function featured_image_newsstream()
 		// link Post Thumbnail to Post
 		// $post is from functions.php
 		$featured_image  = '<div class="featuredimage"><a href="'.get_permalink($post->ID).'">'.the_post_thumbnail('wrdsb-full-width').'</a></div>';
-  	}
   	echo $featured_image;
-	//return $featured_image;
+  	}
 }
 
 function display_cats_tags() 
@@ -46,6 +44,7 @@ function display_cats_tags()
 		$cats_n_tags .= '<p class="categories gray-dark small">Tags: ';
 		$cats_n_tags .= the_tags('',' &bull; ','');
 		$cats_n_tags .= '</p>';
+		echo $cats_n_tags;
 	}
 	elseif (isset($display_cats) && !isset($display_tags)) 
 	{
@@ -53,6 +52,7 @@ function display_cats_tags()
 		$cats_n_tags .= '<p class="categories gray-dark small">Categories: ';
 		$cats_n_tags .= the_category(' &bull; ');
 		$cats_n_tags .= '</p>';
+		echo $cats_n_tags;
 	} 
 	elseif (isset($display_cats) && isset($display_tags)) 
 	{
@@ -62,8 +62,6 @@ function display_cats_tags()
 		$cats_n_tags .= ' Tags: ';
 		$cats_n_tags .= the_tags('',' &bull; ','');
 		$cats_n_tags .= '</p>';
+		echo $cats_n_tags;
 	}
-	
-	echo $cats_n_tags;
-	//return $cats_n_tags;
 }
