@@ -195,8 +195,8 @@ function wrdsb_widgets_init() {
     'description'   => __( 'Appears in the footer section of the site.', 'wrdsb' ),
     'before_widget' => '',
     'after_widget'  => '',
-    'before_title'  => '<h4>',
-    'after_title'   => '</h4>',
+    'before_title'  => '<h1>',
+    'after_title'   => '</h1>',
   ) );
   register_sidebar( array(
     'name'          => __( 'Footer Centre', 'wrdsb' ),
@@ -204,8 +204,8 @@ function wrdsb_widgets_init() {
     'description'   => __( 'Appears in the footer section of the site.', 'wrdsb' ),
     'before_widget' => '',
     'after_widget'  => '',
-    'before_title'  => '<h4>',
-    'after_title'   => '</h4>',
+    'before_title'  => '<h1>',
+    'after_title'   => '</h1>',
   ) );
   register_sidebar( array(
     'name'          => __( 'Footer Right', 'wrdsb' ),
@@ -213,8 +213,8 @@ function wrdsb_widgets_init() {
     'description'   => __( 'Appears in the footer section of the site.', 'wrdsb' ),
     'before_widget' => '',
     'after_widget'  => '',
-    'before_title'  => '<h4>',
-    'after_title'   => '</h4>',
+    'before_title'  => '<h1>',
+    'after_title'   => '</h1>',
   ) );
   register_sidebar( array(
     'name'          => __( 'Content Left', 'wrdsb' ),
