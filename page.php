@@ -62,7 +62,7 @@
       echo '<div class="col-sm-9 col-lg-9">';
     # Just right sidebar
     elseif (($has_left == FALSE) and ($has_right == TRUE)):
-      echo '<div class="col-sm-8">';
+      echo '<div class="col-sm-9">';
     # No sidebars
     elseif (($has_left == FALSE) and ($has_right == FALSE)):
       echo '<div class="col-sm-12 col-lg-12">';
@@ -117,7 +117,7 @@
 
     # Just right sidebar
     elseif (($has_left == FALSE) and ($has_right == TRUE)):
-      echo '<div class="col-sm-4">';
+      echo '<div class="col-sm-3">';
       if (is_front_page() && wrdsb_i_am_a_school()) {
         echo '<p><a href="http://myway.wrdsb.ca"><img src="http://www.wrdsb.ca/wp-content/uploads/myway_banner_344x100.jpg" alt="MyWay Logo"/></a></p>';
         echo '<p><a href="/about/school-year-information"><img src="http://www.wrdsb.ca/wp-content/uploads/schoolyearinformation_344x100.jpg" alt="School Year Information Logo"/></a></p>';
