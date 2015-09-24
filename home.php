@@ -65,7 +65,7 @@
 
     # Just right sidebar
     elseif (($has_left == FALSE) and ($has_right == TRUE)):
-      echo '<div class="col-sm-8">';
+      echo '<div class="col-sm-9">';
 
     # No sidebars
     elseif (($has_left == FALSE) and ($has_right == FALSE)):
@@ -110,7 +110,7 @@
 
     # Just right sidebar
     elseif (($has_left == FALSE) and ($has_right == TRUE)):
-      echo '<div class="col-sm-4">';
+      echo '<div class="col-sm-3">';
       if (is_front_page() && wrdsb_i_am_a_school_with_kindergarten()) {
         echo '<p><a href="/about/how-to-register-for-kindergarten/"><img src="http://www.wrdsb.ca/wp-content/uploads/register_for_kindergarten_2.jpg" alt="Kindergarten Registration button"/></a></p>';
       }
