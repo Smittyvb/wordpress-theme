@@ -60,3 +60,23 @@ a:hover, a:focus {
 	border-top-color:#0F0005; /*secondary*/
 	color:#fff;
 }
+
+th {
+	background-color: #fde8e7; /*primary-extra-light*/
+}
+
+thead > tr > th {
+        border-bottom: 2px solid #0F0005; /*secondary*/
+        }
+
+tr:hover, tr:nth-child(odd):hover, tr:nth-child(even):hover {
+	background-color: #eee !important;
+}
+
+td:hover {
+	background-color: #ddd;
+}
+
+th {
+	color: #6f0b09; /*primary*/
+}

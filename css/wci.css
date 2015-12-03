@@ -84,7 +84,11 @@ thead > tr > th {
         }
 
 tr:hover, tr:nth-child(odd):hover, tr:nth-child(even):hover {
-	background-color: #e3b2b3 !important; /*secondary-light*/
+	background-color: #eee !important;
+}
+
+td:hover {
+	background-color: #ddd;
 }
 
 th {
