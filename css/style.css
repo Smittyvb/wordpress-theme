@@ -20,6 +20,44 @@
 }
 */
 
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic|Roboto+Slab:400,700|Roboto+Mono|Roboto+Condensed:400,400italic,700,700italic);
+
+body {
+	font-family: 'Roboto Slab', 'open sans', sans-serif;
+	font-weight: 400;
+	line-height: 170%;
+}
+
+p {
+	font-size: 1.1em;
+}
+
+h1, h2, th, .sub-menu-heading, .register {
+	font-family: Roboto, 'open sans', sans-serif;
+	font-weight: 700;
+}
+
+h1 + h2  {
+	padding-top: 0;
+}
+
+h3, h4, h5, h6, .postdate, .categories, .nav li a, .readmore, .sub-menu-items, .breadcrumb {
+	font-family: Roboto, 'open sans', sans-serif;
+	font-weight: 400;
+}
+
+h2 {
+	padding-top: .5em;
+}
+
+h3 {
+	padding-top: .5em;
+}
+
+h4 {
+	padding-top: .5em;
+}
+
 .categories {
 	border-top: 1px solid #eee;
 	margin-top: .5em;
@@ -262,7 +300,8 @@ a {
 
 .footer h1 {
 	font-size: 20px !important;
-	font-family: arial, helvetica, sans-serif !important;
+	/*font-family: arial, helvetica, sans-serif !important;*/
+	font-family: 'Roboto', 'open sans', sans-serif;
 	font-weight: bold !important;
 	margin-bottom:20px !important;
 	color:#fff !important;
@@ -382,6 +421,25 @@ p.copyright, h6.copyright { /* was h6.copyright */
 	text-decoration: none;
 	color:#e6eff6;
 }
+
+.header #logo span {
+	/* for mobile */
+}
+
+.header #logo div.title {
+	font-family: calibri, 'Open Sans', 'Roboto', sans-serif !important;
+	-webkit-font-smoothing: antialiased;
+	font-size: 30px;
+}
+
+.header #logo div.servicemark {
+/**	font-family: arial, helvetica, sans-serif !important; **/
+	font-family: Roboto, 'open sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 24px;
+}
+
+
 .header .social-icons a:hover {
 	text-decoration:none;
 	color:#669ecc;
@@ -1202,10 +1260,10 @@ a[href $='docx'] {
 
 /*** __Visual Branding Requirements for Typography ***/
 
-h1 {
+/**h1 {
 	font-family: Georgia, serif !important;
 	-webkit-font-smoothing: antialiased;
-}
+}**/
 
 
 /*** __Advisory Board and Staff Profile Pages ***/

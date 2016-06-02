@@ -19,12 +19,16 @@
     <title><?php wp_title(''); ?> (<?php bloginfo('name'); ?>)</title>
   <?php } ?>
 
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico" />
+ 
   <!-- Bootstrap -->
   <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet" media="all">
   <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap-theme.css" rel="stylesheet">
   <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel="stylesheet">
   <link href="<?php echo get_template_directory_uri(); ?>/css/icon-styles.css" rel="stylesheet">
 
+  <!-- Add to Home Screen -->
   <link href="<?php echo get_template_directory_uri(); ?>/images/icon-60x60.png" rel="apple-touch-icon" />
   <link href="<?php echo get_template_directory_uri(); ?>/images/icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
   <link href="<?php echo get_template_directory_uri(); ?>/images/icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
@@ -72,7 +76,11 @@
     </script>
   <?php wp_head(); ?>
 
+  <!-- Secondary School Theme Colours -->  
+
   <?php wrdsb_secondary_school_colours(); ?>
+
+  <!-- Google Analytics -->
 
   <?php if (wrdsb_i_am_a_corporate_site()) { ?>
     <script>
@@ -116,6 +124,7 @@
 </head>
 
 <body>
+<!-- Facebook Connection -->
   <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
