@@ -23,17 +23,18 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic|Roboto+Slab:400,700|Roboto+Mono|Roboto+Condensed:400,400italic,700,700italic);
 
 body {
-	font-family: 'Roboto Slab', 'open sans', sans-serif;
+	font-family: Roboto, 'open sans', sans-serif;
 	font-weight: 400;
 	line-height: 170%;
 }
 
-p {
+p, li {
+	font-family: 'Roboto Slab', 'open sans', serif;
+	font-weight: 400;
 	font-size: 1.1em;
 }
 
 h1, h2, th, .sub-menu-heading, .register {
-	font-family: Roboto, 'open sans', sans-serif;
 	font-weight: 700;
 }
 
@@ -41,9 +42,13 @@ h1 + h2  {
 	padding-top: 0;
 }
 
-h3, h4, h5, h6, .postdate, .categories, .nav li a, .readmore, .sub-menu-items, .breadcrumb {
+.postdate, .categories, .nav li a, .readmore, .sub-menu-items, .breadcrumb {
 	font-family: Roboto, 'open sans', sans-serif;
-	font-weight: 400;
+	font-weight: 400 !important;
+}
+
+.nav li a {
+	font-size: 1.1em !important;
 }
 
 h2 {

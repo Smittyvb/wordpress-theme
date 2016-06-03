@@ -1,3 +1,7 @@
+## 0.8.x
+Feature
++ new typography
+
 ## 0.8.3
 Content
 + removed SCIS survey
