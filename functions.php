@@ -980,3 +980,93 @@ if ( ! function_exists ('favicon_link' ) ) {
   }
   add_action( 'wp_head', 'favicon_link' );
 }
+
+// Tiny MCE
+
+// add to top row of buttons
+/*function add_more_buttons($buttons) {
+  $buttons[] = 'charmap';
+  return $buttons;
+}
+add_filter("mce_buttons", "add_more_buttons");
+
+// add to bottom row of buttons
+function add_still_more_buttons($moar_buttons) {
+  $moar_buttons[] = 'table';
+  return $moar_buttons;
+}
+add_filter("mce_buttons_2", "add_still_more_buttons"); 
+
+// add a third row of buttons
+function add_third_row_buttons($moar_buttons) {
+  $still_moar_buttons[] = 'cut';
+  $still_moar_buttons[] = 'copy';
+  $still_moar_buttons[] = 'paste';
+  return $still_moar_buttons;
+}
+add_filter("mce_buttons_3", "add_third_row_buttons");*/
+
+// Callback function to insert 'styleselect' into the $buttons array
+function my_mce_buttons_3( $buttons ) {
+  array_unshift( $buttons, 'styleselect' );
+  return $buttons;
+}
+// Register our callback to the appropriate filter
+add_filter( 'mce_buttons_3', 'my_mce_buttons_3' );
+
+// Callback function to filter the MCE settings
+function my_mce_before_init_insert_formats( $init_array ) {  
+  // Define the style_formats array
+  $style_formats = array(  
+    // Each array child is a format with it's own settings
+    array(  
+      'title' => 'Announcement',  
+      'block' => 'div',  
+      'classes' => 'announcement',
+      'wrapper' => true,
+    ),
+    array(  
+      'title' => 'Note (Paragraph)',  
+      'block' => 'p',  
+      'classes' => 'note',
+      'wrapper' => true,
+    ),
+    array(  
+      'title' => 'Note (Span)',  
+      'inline' => 'span',  
+      'classes' => 'note',
+      'wrapper' => false, 
+    ),  
+    array(  
+      'title' => 'Reference (use with Blockquote)',  
+      'block' => 'p',  
+      'classes' => 'reference',
+      'wrapper' => false,
+    ),
+    array(  
+      'title' => 'Register Button',  
+      'block' => 'div',  
+      'classes' => 'register quarter right',
+      'wrapper' => true,
+    ),
+    /*array(  
+      'title' => 'Left-aligned Paragraph',  
+      'block' => 'p',  
+      'classes' => 'left',
+      'wrapper' => true,
+    ),
+    array(  
+      'title' => 'Right-aligned Paragraph',  
+      'block' => 'p',  
+      'classes' => 'right',
+      'wrapper' => true,
+    ),*/
+  );  
+  // Insert the array, JSON ENCODED, into 'style_formats'
+  $init_array['style_formats'] = json_encode( $style_formats );  
+  
+  return $init_array;  
+  
+} 
+// Attach callback to 'tiny_mce_before_init' 
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );  
