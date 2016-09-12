@@ -141,8 +141,8 @@
         <div class="col-md-9 col-sm-8">
           <div id="logo">
             <a href="<?php echo home_url(); ?>/"><span><?php echo get_bloginfo('name'); ?></span>
-              <h2><?php echo get_bloginfo('name'); ?></h2>
-              <h3><?php echo get_bloginfo('description'); ?></h3>
+              <div class="title"><?php echo get_bloginfo('name'); ?></div>
+              <div class="servicemark"><?php echo get_bloginfo('description'); ?></div>
             </a>
           </div>
         </div>

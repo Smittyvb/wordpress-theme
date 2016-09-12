@@ -34,6 +34,10 @@ p, li {
 	font-size: 1.1em;
 }
 
+li > p, li > ul > li {
+	font-size: 1em !important;
+}
+
 h1, h2, th, .sub-menu-heading, .register {
 	font-weight: 700;
 }
@@ -52,7 +56,9 @@ h1 + h2  {
 }
 
 h2 {
-	padding-top: .5em;
+	padding-top: 1em;
+	border-top: 1px solid #005daa;
+	margin-top: 1em;
 }
 
 h3 {
@@ -69,6 +75,24 @@ h4 {
 	padding-top: .5em;
 	margin-bottom: 3em;
 }
+
+/*** Header Styles ***/
+
+.wrdsb-site-name {
+	font-size: 3em;
+	color: #000;
+}
+
+.wrdsb-site-name-mobile {
+	font-size: 3em;
+	color: #000;
+}
+
+.wrdsb-site-tagline {
+	font-size: 1.5em;
+	color: #000;
+}
+
 
 /*** General Styles ***/
 
@@ -426,6 +450,9 @@ p.copyright, h6.copyright { /* was h6.copyright */
 	text-decoration: none;
 	color:#e6eff6;
 }
+.header {
+	margin-bottom: 15px;
+}
 
 .header #logo span {
 	/* for mobile */
@@ -434,16 +461,18 @@ p.copyright, h6.copyright { /* was h6.copyright */
 .header #logo div.title {
 	font-family: calibri, 'Open Sans', 'Roboto', sans-serif !important;
 	-webkit-font-smoothing: antialiased;
-	font-size: 30px;
+	font-weight: 700;
+	font-size: 3em;
+	margin-bottom: .5em;
+	margin-top: .5em;
 }
 
 .header #logo div.servicemark {
 /**	font-family: arial, helvetica, sans-serif !important; **/
 	font-family: Roboto, 'open sans', sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-size: 24px;
+	font-size: 1.5em;
 }
-
 
 .header .social-icons a:hover {
 	text-decoration:none;
