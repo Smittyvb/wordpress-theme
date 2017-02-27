@@ -1,3 +1,8 @@
+## 1.0.1
++ make $asset_version global
++ change role for logo area
++ 
+
 ## 1.0.0
 + Royal Blue Tang
 + accessibility changes

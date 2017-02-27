@@ -394,6 +394,8 @@ require get_template_directory() . '/inc/customizer.php';
   //require get_template_directory() . '/inc/featured-content.php';
 //}
 
+$asset_version = "1/1.0.1";
+
 
 function the_breadcrumb() {
   global $post;
@@ -444,7 +446,7 @@ function the_breadcrumb() {
 function wrdsb_secondary_school_colours() {
   $parsed_url = parse_url(site_url());
   $host = explode('.', $parsed_url['host']);
-  $asset_version = "1/1.0.1";
+  global $asset_version;
   switch ($host[0]) {
     case "bci":
       echo '<!-- Site specific styles for BCI -->'."\r\n";
@@ -860,6 +862,7 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 // Favicon
 if ( ! function_exists ('favicon_link' ) ) {
   function favicon_link() {
+    global $asset_version;
     echo '<link rel="shortcut icon" type="image/x-icon" href="https://s3.amazonaws.com/wrdsb-ui-assets/'.$asset_version.'/images/favicon.png" />' . "\n";
   }
   add_action( 'wp_head', 'favicon_link' );

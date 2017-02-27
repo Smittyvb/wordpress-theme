@@ -123,7 +123,7 @@
     <div class="header">
       <div class="row">
         <div class="col-md-9 col-sm-8">
-          <div id="logo" role="heading">
+          <div id="logo" role="banner">
             <a aria-labelledby="logo" href="<?php echo home_url(); ?>/"><span><?php echo get_bloginfo('name'); ?></span>
               <p id="sitename"><?php echo get_bloginfo('name'); ?></p>
               <?php if (get_bloginfo('description') != '') { ?>
@@ -204,7 +204,7 @@
 
     // if there is no alert, but a header image
     else if (get_header_image()) { ?>
-      <div class="container" role="Img" aria_label="Header Image">
+      <div class="container" role="Img" aria_label="banner">
         <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
       </div>
     <?php   
