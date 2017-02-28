@@ -21,20 +21,20 @@
   $asset_version = "1/1.0.0";
   ?>
 
-  <link href="https://s3.amazonaws.com/wrdsb-ui-assets/1/master.css" rel="stylesheet" media="all">
+  <link href="http://www.wrdsb.ca/wp-content/uploads/ui/master.css" rel="stylesheet" media="all">
 
-  <link href="https://s3.amazonaws.com/wrdsb-ui-assets/<?php echo $asset_version; ?>/images/icon-60x60.png" rel="apple-touch-icon" />
-  <link href="https://s3.amazonaws.com/wrdsb-ui-assets/<?php echo $asset_version; ?>/images/icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
-  <link href="https://s3.amazonaws.com/wrdsb-ui-assets/<?php echo $asset_version; ?>/images/icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
-  <link href="https://s3.amazonaws.com/wrdsb-ui-assets/<?php echo $asset_version; ?>/images/icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+  <link href="http://www.wrdsb.ca/wp-content/uploads/ui/images/icon-60x60.png" rel="apple-touch-icon" />
+  <link href="http://www.wrdsb.ca/wp-content/uploads/ui/images/icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+  <link href="http://www.wrdsb.ca/wp-content/uploads/ui/images/icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+  <link href="http://www.wrdsb.ca/wp-content/uploads/ui/images/icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-  <script src="https://s3.amazonaws.com/wrdsb-theme/js/addtohomescreen.min.js"></script>
-  <script src="https://s3.amazonaws.com/wrdsb-theme/js/jquery.floatThead.min.js"></script>
+  <script src="http://www.wrdsb.ca/wp-content/uploads/ui/js/addtohomescreen.min.js"></script>
+  <script src="http://www.wrdsb.ca/wp-content/uploads/ui/js/jquery.floatThead.min.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
