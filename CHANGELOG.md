@@ -1,3 +1,6 @@
+## 1.0.1
++ temporary hijacking of assets to our servers
+
 ## 1.0.0
 + Royal Blue Tang
 + accessibility changes
